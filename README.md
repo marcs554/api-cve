@@ -7,5 +7,5 @@ in JSON format.
 * Have installed python version 3.5 or higher
 
 ### Setup
-1. Download the code -- git clone https://github.com/marcs554/api-cve.git> --
+1. Download the code ```git clone https://github.com/marcs554/api-cve.git>```
 2. Execute the command; Example:'<python api-cve.py cve-2020-4542>'
