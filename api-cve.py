@@ -5,14 +5,24 @@ from requests.exceptions import InvalidURL, HTTPError, ConnectionError, ConnectT
 
 
 class CVE:
+
     def __init__(self, _id) -> None:
+        """
+
+        Args:
+            _id (str): Id del CVE
+        """
         self.__id = _id
     
-    def get_info_cve(self):
+    def fetch_info_cve(self):
+        """Esta función se recoge de la url 'https://cve.circl.lu/api/cve/<id>' los datos que se le indique.
+        Estos datos son extraidos de la web, parseados a formato json e imprimidos en pantalla.
+        """
         try:
             response = requests.get("https://cve.circl.lu/api/cve/{}".format(self.__id))
             json_raw = json.loads(response.text)
             json_formated_data = json.dumps(json_raw, indent=5)
+
             print(json_formated_data)
         
         except InvalidURL as e:
@@ -31,5 +41,5 @@ class CVE:
 if __name__ == "__main__":
     id = sys.argv[1]
     cve = CVE(id)
-    cve.get_info_cve()
+    cve.fetch_info_cve()
 
